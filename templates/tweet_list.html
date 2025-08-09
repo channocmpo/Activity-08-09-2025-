@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Tweets</title>
+</head>
+<body>
+<h1>All Tweets</h1>
+<a href="{% url 'create_tweet' %}">Create a tweet</a>
+
+<ul>
+    {% for tweet in tweets %}
+    <li>
+        <p>{{ tweet.content }}</p>
+        {% if tweet.image %}
+        <img src="{{ tweet.image.url }}" alt="Tweet Image" width="200">
+        {% endif %}
+        <small>{{ tweet.created_at }}</small>
+    </li>
+    {% endfor %}
+
+</ul>
+
+</body>
+</html>
